@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineShop.AccessData.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,15 @@ namespace OnlineShop.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly CategoryService categoryService;
+        public HomeController(CategoryService categoryService)
+        {
+            this.categoryService = categoryService;
+        }
         public ActionResult Index()
         {
-            return View();
+            var list = categoryService.getListCategories();
+            return View(list);
         }
 
         public ActionResult About()

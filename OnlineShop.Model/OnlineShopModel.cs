@@ -5,9 +5,9 @@ namespace OnlineShop.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class OnlineShopEntities : DbContext
+    public partial class OnlineShopModel : DbContext
     {
-        public OnlineShopEntities()
+        public OnlineShopModel()
             : base("name=OnlineShopEntities")
         {
         }
