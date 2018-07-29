@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace OnlineShop.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly CategoryService categoryService;
         public HomeController(CategoryService categoryService)
@@ -16,10 +16,9 @@ namespace OnlineShop.Controllers
         }
         public ActionResult Index()
         {
-            var list = categoryService.getListCategories();
-            return View(list);
-        }
-
+           // var list = categoryService.getListCategories();
+            return View();
+        } 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page";

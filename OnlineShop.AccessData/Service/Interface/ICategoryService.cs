@@ -1,4 +1,5 @@
-﻿using OnlineShop.Model;
+﻿using OnlineShop.AccessData.ViewModel;
+using OnlineShop.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace OnlineShop.AccessData.Service
 {
     interface ICategoryService
     {
-        List<Category> getListCategories();
+        List<CategoryViewModel> getListCategories();
     }
 }

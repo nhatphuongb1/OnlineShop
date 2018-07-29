@@ -1,5 +1,7 @@
-﻿using OnlineShop.AccessData.Repositories;
+﻿using AutoMapper;
+using OnlineShop.AccessData.Repositories;
 using OnlineShop.AccessData.Repositories.Interface;
+using OnlineShop.AccessData.ViewModel;
 using OnlineShop.Model;
 using System;
 using System.Collections.Generic;
@@ -16,9 +18,13 @@ namespace OnlineShop.AccessData.Service
         {
             this.categoryRepository = categoryRepository;
         }
-        public List<Category> getListCategories()
+        public List<CategoryViewModel> getListCategories()
         {
-            return categoryRepository.GetCategories();
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Category,CategoryViewModel>();
+            });
+                return Mapper.Map<List<CategoryViewModel >>(categoryRepository.GetCategories());
         }
     }
 }
