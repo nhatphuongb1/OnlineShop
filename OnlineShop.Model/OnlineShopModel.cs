@@ -42,6 +42,11 @@ namespace OnlineShop.Model
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Category>()
+                .HasMany(e => e.Category1)
+                .WithOptional(e => e.Category2)
+                .HasForeignKey(e => e.ParentID);
+
+            modelBuilder.Entity<Category>()
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.Category)
                 .WillCascadeOnDelete(false);

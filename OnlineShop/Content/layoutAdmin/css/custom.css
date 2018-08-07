@@ -101,3 +101,9 @@
         margin-left: auto;
     }
 }
+.status-active {
+   color: #286090
+}
+.status-delete {
+    color: #c9302c
+}

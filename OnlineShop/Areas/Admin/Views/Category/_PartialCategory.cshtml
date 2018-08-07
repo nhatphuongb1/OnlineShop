@@ -1,0 +1,55 @@
+﻿@model PagedList.IPagedList<OnlineShop.AccessData.ViewModel.CategoryViewModel>
+@using PagedList.Mvc;
+@using OnlineShop.AccessData.Utilities;
+@{
+    var i = (Model.PageNumber - 1) * 10;
+}
+
+<div class="tables">
+    <div class="bs-example widget-shadow" data-example-id="bordered-table">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>@Html.DisplayNameFor(model => model.First().ImageID)</th>
+                    <th>@Html.DisplayNameFor(model=>model.First().Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().ParentName)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Status)</th>
+                    <th>Option</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@(++i)</th>
+                        <td><img class="img-responsive" src="@item.ImagePath" /></td>
+                        <td>@item.Name</td>
+                        <td>@(item.CategoryParent != null ? item.ParentName : "")</td>
+                        <td>                 <span class=" glyphicon @(item.Status == System.Convert.ToBoolean(ConstantValues.STATUS.Active) ? "status-active glyphicon-ok" : "status-delete glyphicon-remove")"></span></td>
+                        <td>
+
+                            @Html.ActionLink(" ", "Edit ", new { }, new { @class = "btn btn-primary glyphicon glyphicon-edit", @title = "Edit" })
+                            <a class="btn btn-danger glyphicon glyphicon-trash" href="#" title="Delete" data-toggle="modal" data-target="#gridSystemModal"></a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+@Html.PagedListPager(Model, page => Url.Action("_PartialCategory", "Category", new { page = page}),
+        PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions()
+        {
+            UlElementClasses = new string[] { "pagination pagination-lg" },
+
+            LiElementClasses = new string[] { "noselect" },
+            MaximumPageNumbersToDisplay = 5,
+            LinkToNextPageFormat = "›",
+            LinkToFirstPageFormat = "«",
+            LinkToLastPageFormat = "»",
+            LinkToPreviousPageFormat = "‹",
+            DisplayEllipsesWhenNotShowingAllPageNumbers = false
+        },
+            new AjaxOptions() { UpdateTargetId = "list-data" }))

@@ -1,3 +1,6 @@
+using OnlineShop.AccessData.Mapping;
+using OnlineShop.Model;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -22,7 +25,7 @@ namespace OnlineShop
             FilterProviders.Providers.Add(new UnityFilterAttributeFilterProvider(UnityConfig.Container));
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(UnityConfig.Container));
-
+            AutoMapperConfig.Initialize();
             // TODO: Uncomment if you want to use PerRequestLifetimeManager
             // Microsoft.Web.Infrastructure.DynamicModuleHelper.DynamicModuleUtility.RegisterModule(typeof(UnityPerRequestHttpModule));
         }

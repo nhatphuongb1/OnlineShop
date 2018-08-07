@@ -15,7 +15,7 @@ namespace OnlineShop.AccessData.Repositories.Implement
         {
         }
 
-        public List<Category> GetCategories()
+        public IEnumerable<Category> GetCategories()
         {
             return Get().ToList();
         }

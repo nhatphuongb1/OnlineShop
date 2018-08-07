@@ -13,18 +13,17 @@ namespace OnlineShop.AccessData.Service
 {
     public class CategoryService : ICategoryService
     {
+        public OnlineShopModel context;
         private readonly ICategoryRepository categoryRepository;
         public CategoryService(ICategoryRepository categoryRepository)
         {
             this.categoryRepository = categoryRepository;
         }
-        public List<CategoryViewModel> getListCategories()
+        public IEnumerable<CategoryViewModel> getListCategories()
         {
-            Mapper.Initialize(cfg =>
-            {
-                cfg.CreateMap<Category,CategoryViewModel>();
-            });
-                return Mapper.Map<List<CategoryViewModel >>(categoryRepository.GetCategories());
+
+            return Mapper.Map<IEnumerable<CategoryViewModel>>(categoryRepository.GetCategories());
         }
+
     }
 }

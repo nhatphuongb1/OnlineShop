@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.AccessData.Service
 {
-    interface ICategoryService
+   public interface ICategoryService
     {
-        List<CategoryViewModel> getListCategories();
+        IEnumerable<CategoryViewModel> getListCategories();
     }
 }

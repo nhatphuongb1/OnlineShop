@@ -53,6 +53,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -169,6 +175,8 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -182,6 +190,46 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\layoutAdmin\css\animate.css" />
+    <Content Include="Content\layoutAdmin\css\bootstrap.css" />
+    <Content Include="Content\layoutAdmin\css\clndr.css" />
+    <Content Include="Content\layoutAdmin\css\custom.css" />
+    <Content Include="Content\layoutAdmin\css\font-awesome.css" />
+    <Content Include="Content\layoutAdmin\css\jqvmap.css" />
+    <Content Include="Content\layoutAdmin\css\style.css" />
+    <Content Include="Content\layoutAdmin\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\layoutAdmin\images\1.png" />
+    <Content Include="Content\layoutAdmin\images\2.png" />
+    <Content Include="Content\layoutAdmin\images\3.png" />
+    <Content Include="Content\layoutAdmin\images\a.png" />
+    <Content Include="Content\layoutAdmin\images\i1.png" />
+    <Content Include="Content\layoutAdmin\images\i2.png" />
+    <Content Include="Content\layoutAdmin\images\i3.png" />
+    <Content Include="Content\layoutAdmin\images\i4.png" />
+    <Content Include="Content\layoutAdmin\images\img1.png" />
+    <Content Include="Content\layoutAdmin\images\lock.png" />
+    <Content Include="Content\layoutAdmin\images\tick.png" />
+    <Content Include="Content\layoutAdmin\images\user.png" />
+    <Content Include="Content\layoutAdmin\js\bootstrap.js" />
+    <Content Include="Content\layoutAdmin\js\Chart.js" />
+    <Content Include="Content\layoutAdmin\js\classie.js" />
+    <Content Include="Content\layoutAdmin\js\clndr.js" />
+    <Content Include="Content\layoutAdmin\js\custom.js" />
+    <Content Include="Content\layoutAdmin\js\jquery-1.11.1.min.js" />
+    <Content Include="Content\layoutAdmin\js\jquery.circlechart.js" />
+    <Content Include="Content\layoutAdmin\js\jquery.nicescroll.js" />
+    <Content Include="Content\layoutAdmin\js\jquery.vmap.js" />
+    <Content Include="Content\layoutAdmin\js\jquery.vmap.sampledata.js" />
+    <Content Include="Content\layoutAdmin\js\jquery.vmap.world.js" />
+    <Content Include="Content\layoutAdmin\js\metisMenu.min.js" />
+    <Content Include="Content\layoutAdmin\js\modernizr.custom.js" />
+    <Content Include="Content\layoutAdmin\js\moment-2.2.1.js" />
+    <Content Include="Content\layoutAdmin\js\scripts.js" />
+    <Content Include="Content\layoutAdmin\js\site.js" />
+    <Content Include="Content\layoutAdmin\js\skycons.js" />
+    <Content Include="Content\layoutAdmin\js\underscore-min.js" />
+    <Content Include="Content\layoutAdmin\js\validator.min.js" />
+    <Content Include="Content\layoutAdmin\js\wow.min.js" />
     <Content Include="Content\layoutUser\css\bootstrap.css" />
     <Content Include="Content\layoutUser\css\font-awesome.css" />
     <Content Include="Content\layoutUser\css\jstarbox.css" />
@@ -289,6 +337,7 @@
     <Content Include="Content\layoutUser\js\jstarbox.js" />
     <Content Include="Content\layoutUser\js\modernizr.custom.js" />
     <Content Include="Content\layoutUser\js\move-top.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -308,14 +357,24 @@
     <Content Include="Content\layoutUser\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\layoutUser\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Shared\Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Content\layoutAdmin\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\layoutAdmin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\layoutAdmin\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\layoutAdmin\fonts\FontAwesome.otf" />
+    <Content Include="Content\layoutAdmin\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\layoutAdmin\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\_PartialCategory.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -337,7 +396,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Content\layoutAdmin\" />
+    <Folder Include="Areas\Admin\Views\BaseAdmin\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -355,7 +414,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineShop.AccessData\OnlineShop.AccessData.csproj">
-      <Project>{E9671705-E9D3-46CA-ACD8-81BCEDB96694}</Project>
+      <Project>{e9671705-e9d3-46ca-acd8-81bcedb96694}</Project>
       <Name>OnlineShop.AccessData</Name>
     </ProjectReference>
     <ProjectReference Include="..\OnlineShop.Model\OnlineShop.Model.csproj">

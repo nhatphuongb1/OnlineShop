@@ -9,6 +9,6 @@ namespace OnlineShop.AccessData.Repositories.Interface
 {
     public interface ICategoryRepository : IRepositoryBase<Category>
     {
-        List<Category> GetCategories();
+        IEnumerable<Category> GetCategories();
     }
 }

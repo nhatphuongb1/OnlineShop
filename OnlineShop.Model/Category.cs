@@ -12,6 +12,7 @@ namespace OnlineShop.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Category()
         {
+            Category1 = new HashSet<Category>();
             Products = new HashSet<Product>();
         }
 
@@ -22,7 +23,7 @@ namespace OnlineShop.Model
         public string Name { get; set; }
 
         [Required]
-        [StringLength(300)]
+        [StringLength(4000)]
         public string Description { get; set; }
 
         public int ImageID { get; set; }
@@ -38,6 +39,11 @@ namespace OnlineShop.Model
         public int? ModifiedBy { get; set; }
 
         public DateTime? ModifiedAt { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Category> Category1 { get; set; }
+
+        public virtual Category Category2 { get; set; }
 
         public virtual Image Image { get; set; }
 

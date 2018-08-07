@@ -1,0 +1,53 @@
+﻿
+@model PagedList.IPagedList<OnlineShop.AccessData.ViewModel.CategoryViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="title1">Category</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <button type="button" class="btn btn-primary btn-md">
+            <span class="glyphicon glyphicon-plus">
+            </span>
+            Create
+        </button>
+    </div>
+</div>
+
+<div class="row">
+
+    @using (Html.BeginForm("Index", "Categories", FormMethod.Get))
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="col-md-3">@Html.DisplayNameFor(model => model.First().Name)</th>
+                    <th class="col-md-3">@Html.DisplayNameFor(model => model.First().ParentName)</th>
+                    <th class="col-md-3">@Html.DisplayNameFor(model => model.First().Status)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.TextBox("Name", null, new { @class = "form-control pull-right", placeholder = "Name" })
+                    </td>
+                    <td>
+                        @Html.TextBox("Name", null, new { @class = "form-control pull-right", placeholder = "Name" })
+                    </td>
+                    <td>
+                        @Html.TextBox("Name", null, new { @class = "form-control pull-right", placeholder = "Name" })
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+
+</div>
+
+<div class="partial-view" id="list-data">
+    @Html.Partial("~/Areas/Admin/Views/Category/_PartialCategory.cshtml")
+</div>
+
