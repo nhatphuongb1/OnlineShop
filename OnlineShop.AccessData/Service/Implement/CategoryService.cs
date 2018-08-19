@@ -1,13 +1,8 @@
 ﻿using AutoMapper;
-using OnlineShop.AccessData.Repositories;
 using OnlineShop.AccessData.Repositories.Interface;
 using OnlineShop.AccessData.ViewModel;
 using OnlineShop.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineShop.AccessData.Service
 {
@@ -15,14 +10,20 @@ namespace OnlineShop.AccessData.Service
     {
         public OnlineShopModel context;
         private readonly ICategoryRepository categoryRepository;
+
         public CategoryService(ICategoryRepository categoryRepository)
         {
             this.categoryRepository = categoryRepository;
         }
-        public IEnumerable<CategoryViewModel> getListCategories()
-        {
 
-            return Mapper.Map<IEnumerable<CategoryViewModel>>(categoryRepository.GetCategories());
+        public IEnumerable<CategoryViewModel> getListCategories(string name, int? parent, bool? status)
+        {
+            return Mapper.Map<IEnumerable<CategoryViewModel>>(categoryRepository.GetCategories( name,parent,status));
+        }
+
+        public IEnumerable<CategoryViewModel> GetParentCategories()
+        {
+            return Mapper.Map<IEnumerable<CategoryViewModel>>(categoryRepository.GetParentCategories());
         }
 
     }

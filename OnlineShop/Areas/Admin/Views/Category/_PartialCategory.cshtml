@@ -2,7 +2,7 @@
 @using PagedList.Mvc;
 @using OnlineShop.AccessData.Utilities;
 @{
-    var i = (Model.PageNumber - 1) * 10;
+    var i = (Model.PageNumber - 1) * ConstantValues.PAGE_SIZE;
 }
 
 <div class="tables">
@@ -12,7 +12,7 @@
                 <tr>
                     <th>No.</th>
                     <th>@Html.DisplayNameFor(model => model.First().ImageID)</th>
-                    <th>@Html.DisplayNameFor(model=>model.First().Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Name)</th>
                     <th>@Html.DisplayNameFor(model => model.First().ParentName)</th>
                     <th>@Html.DisplayNameFor(model => model.First().Status)</th>
                     <th>Option</th>
@@ -26,7 +26,9 @@
                         <td><img class="img-responsive" src="@item.ImagePath" /></td>
                         <td>@item.Name</td>
                         <td>@(item.CategoryParent != null ? item.ParentName : "")</td>
-                        <td>                 <span class=" glyphicon @(item.Status == System.Convert.ToBoolean(ConstantValues.STATUS.Active) ? "status-active glyphicon-ok" : "status-delete glyphicon-remove")"></span></td>
+                        <td>
+                            <span class=" glyphicon @(item.Status == System.Convert.ToBoolean(ConstantValues.STATUS.Active) ? "status-active glyphicon-ok" : "status-delete glyphicon-remove")"></span>
+                        </td>
                         <td>
 
                             @Html.ActionLink(" ", "Edit ", new { }, new { @class = "btn btn-primary glyphicon glyphicon-edit", @title = "Edit" })
@@ -39,10 +41,10 @@
         </table>
     </div>
 </div>
-@Html.PagedListPager(Model, page => Url.Action("_PartialCategory", "Category", new { page = page}),
+@Html.PagedListPager(Model, page => Url.Action("_PartialCategory", "Category", new { page = page, name=ViewBag.name, parent=ViewBag.parent, status= ViewBag.status}),
         PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions()
-        {
-            UlElementClasses = new string[] { "pagination pagination-lg" },
+{
+    UlElementClasses = new string[] { "pagination pagination-lg" },
 
             LiElementClasses = new string[] { "noselect" },
             MaximumPageNumbersToDisplay = 5,

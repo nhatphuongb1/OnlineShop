@@ -16,7 +16,7 @@ namespace OnlineShop.Controllers
         }
         public ActionResult Index()
         {
-           var list = categoryService.getListCategories();
+         
             return View();
         } 
         public ActionResult About()

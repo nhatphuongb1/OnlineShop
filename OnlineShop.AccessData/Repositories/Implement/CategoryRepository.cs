@@ -2,10 +2,6 @@
 using OnlineShop.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineShop.AccessData.Repositories.Implement
 {
@@ -15,9 +11,15 @@ namespace OnlineShop.AccessData.Repositories.Implement
         {
         }
 
-        public IEnumerable<Category> GetCategories()
+        public IEnumerable<Category> GetCategories(string name, int? parent, bool? status)
         {
-            return Get().ToList();
+            return Get(filter:x=>(String.IsNullOrEmpty(name)|| x.Name.Contains(name))&& 
+            (parent == null ||x.ParentID == parent) && (status == null || x.Status == status));
+        }
+
+        public IEnumerable<Category> GetParentCategories()
+        {
+            return Get(filter:x=>x.ParentID==null);
         }
     }
 }

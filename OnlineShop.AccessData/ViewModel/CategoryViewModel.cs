@@ -1,10 +1,7 @@
 ﻿using OnlineShop.Model;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
 namespace OnlineShop.AccessData.ViewModel
 {
@@ -46,6 +43,8 @@ namespace OnlineShop.AccessData.ViewModel
         public Image Image { get; set; }
 
         public Category CategoryParent {get;set;}
+
+        public HttpPostedFileBase File { get; set; }        
 
     }
 }

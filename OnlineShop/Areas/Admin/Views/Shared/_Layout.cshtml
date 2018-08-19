@@ -25,12 +25,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     <!-- js-->
     <script src="~/Content/layoutAdmin/js/jquery-1.11.1.min.js"></script>
     <script src="~/Content/layoutAdmin/js/modernizr.custom.js"></script>
+    @*<link href="~/Content/layoutAdmin/css/bootstrap-select.css" rel="stylesheet" />*@
     <!--webfonts-->
     <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
     <!--//webfonts-->
     <!--animate-->
     <link href="~/Content/layoutAdmin/css/animate.css" rel="stylesheet" type="text/css" media="all">
     <script src="~/Content/layoutAdmin/js/wow.min.js"></script>
+    @*<script src="~/Content/layoutAdmin/js/bootstrap-select.js"></script>*@
     <script>
         new WOW().init();
     </script>
@@ -42,12 +44,13 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="~/Content/layoutAdmin/css/clndr.css" type="text/css" />
     <script src="~/Content/layoutAdmin/js/underscore-min.js" type="text/javascript"></script>
     <script src="~/Content/layoutAdmin/js/moment-2.2.1.js" type="text/javascript"></script>
-    <script src="~/Content/layoutAdmin/js/clndr.js" type="text/javascript"></script>
-    <script src="~/Content/layoutAdmin/js/site.js" type="text/javascript"></script>
+    @*<script src="~/Content/layoutAdmin/js/clndr.js" type="text/javascript"></script>
+        <script src="~/Content/layoutAdmin/js/site.js" type="text/javascript"></script>*@
     <!--End Calender-->
     <!-- Metis Menu -->
     <script src="~/Content/layoutAdmin/js/metisMenu.min.js"></script>
     <script src="~/Content/layoutAdmin/js/custom.js"></script>
+    <script src="~/Content/layoutAdmin/js/ScriptForPage/common.js"></script>
     <link href="~/Content/layoutAdmin/css/custom.css" rel="stylesheet">
     <!--//Metis Menu -->
 </head>
@@ -388,6 +391,27 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div>
+    <!-- Modal for noti -->
+    <div class="modal fade" id="alertModalMini">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button class="btn-close" data-dismiss="modal">×</button>
+                <div class="modal-body text-center"></div>
+            </div>
+        </div>
+    </div>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="spinner circles">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <!-- Classie -->
     <script src="~/Content/layoutAdmin/js/classie.js"></script>
     <script>
@@ -416,5 +440,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     <!-- Bootstrap Core JavaScript -->
     <script src="~/Content/layoutAdmin/js/bootstrap.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -90,6 +90,7 @@
                 var result;
                 asyncOnBeforeSend(xhr, method);
                 result = getFunction(element.getAttribute("data-ajax-begin"), ["xhr"]).apply(element, arguments);
+                showLoadingScreen();
                 if (result !== false) {
                     loading.show(duration);
                 }
@@ -97,6 +98,7 @@
             },
             complete: function () {
                 loading.hide(duration);
+                hideLoadingScreen();
                 getFunction(element.getAttribute("data-ajax-complete"), ["xhr", "status"]).apply(element, arguments);
             },
             success: function (data, status, xhr) {
