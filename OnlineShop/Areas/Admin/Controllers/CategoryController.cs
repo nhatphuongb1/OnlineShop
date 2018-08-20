@@ -33,15 +33,16 @@ namespace OnlineShop.Areas.Admin.Controllers
             list = list.ToPagedList(pageNumber, pageSize);
             return PartialView(list);
         }
-        public ActionResult _PartialCreate(CategoryViewModel model)
+        public ActionResult _PartialCreate()
         {
             BuildCategoryDropDownList();
-            return PartialView(model);
+            return PartialView();
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult _PartialCreate(CategoryViewModel model, HttpPostedFileBase file)
         {
-            BuildCategoryDropDownList();
+            BuildCategoryDropDownList(model.CategoryID);
             if (ModelState.IsValid)
             {
 

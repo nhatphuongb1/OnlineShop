@@ -25,14 +25,15 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     <!-- js-->
     <script src="~/Content/layoutAdmin/js/jquery-1.11.1.min.js"></script>
     <script src="~/Content/layoutAdmin/js/modernizr.custom.js"></script>
-    @*<link href="~/Content/layoutAdmin/css/bootstrap-select.css" rel="stylesheet" />*@
+    <link href="~/Content/layoutAdmin/css/bootstrap-select.css" rel="stylesheet" />
     <!--webfonts-->
     <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
     <!--//webfonts-->
     <!--animate-->
     <link href="~/Content/layoutAdmin/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/Content/layoutAdmin/css/custom.css" rel="stylesheet">
     <script src="~/Content/layoutAdmin/js/wow.min.js"></script>
-    @*<script src="~/Content/layoutAdmin/js/bootstrap-select.js"></script>*@
+    <script src="~/Content/layoutAdmin/js/bootstrap-select.js"></script>
     <script>
         new WOW().init();
     </script>
@@ -51,7 +52,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     <script src="~/Content/layoutAdmin/js/metisMenu.min.js"></script>
     <script src="~/Content/layoutAdmin/js/custom.js"></script>
     <script src="~/Content/layoutAdmin/js/ScriptForPage/common.js"></script>
-    <link href="~/Content/layoutAdmin/css/custom.css" rel="stylesheet">
+    <script src="~/Content/layoutAdmin/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/layoutAdmin/ckfinder/ckfinder.js"></script>
+
     <!--//Metis Menu -->
 </head>
 <body class="cbp-spmenu-push">
@@ -443,6 +446,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
