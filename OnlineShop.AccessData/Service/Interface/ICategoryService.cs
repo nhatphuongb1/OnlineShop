@@ -7,5 +7,6 @@ namespace OnlineShop.AccessData.Service
     {
         IEnumerable<CategoryViewModel> getListCategories(string name, int? parent, bool? status);
         IEnumerable<CategoryViewModel> GetParentCategories();
+        void AddCategory(CategoryViewModel model);
     }
 }

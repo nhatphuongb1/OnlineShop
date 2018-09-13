@@ -29,7 +29,7 @@ namespace OnlineShop.Areas.Admin.Controllers
             ViewBag.status = status;
             int pageSize = ConstantValues.PAGE_SIZE;
             int pageNumber = (page ?? 1);
-            IEnumerable<CategoryViewModel> list = _categoryService.getListCategories(name,parent,status);
+            IEnumerable<CategoryViewModel> list = _categoryService.getListCategories(name, parent, status);
             list = list.ToPagedList(pageNumber, pageSize);
             return PartialView(list);
         }
@@ -45,13 +45,14 @@ namespace OnlineShop.Areas.Admin.Controllers
             BuildCategoryDropDownList(model.CategoryID);
             if (ModelState.IsValid)
             {
-
+                _categoryService.AddCategory(model);
+                return Json(new { status=true });
             }
             return PartialView(model);
         }
 
 
-        public void BuildCategoryDropDownListForSearch( object selectedValue=null)
+        public void BuildCategoryDropDownListForSearch(object selectedValue = null)
         {
             IEnumerable<CategoryViewModel> parentList = _categoryService.GetParentCategories();
             List<SelectListItem> listItems = new List<SelectListItem>();
@@ -59,7 +60,7 @@ namespace OnlineShop.Areas.Admin.Controllers
             {
                 Text = "All",
                 Value = null
-               
+
             });
             foreach (var item in parentList)
             {
@@ -68,8 +69,8 @@ namespace OnlineShop.Areas.Admin.Controllers
                     Text = item.Name,
                     Value = item.CategoryID.ToString()
                 });
-            }    
-            ViewBag.parentForSearch = new SelectList(listItems,"Value","Text", selectedValue);
+            }
+            ViewBag.parentForSearch = new SelectList(listItems, "Value", "Text", selectedValue);
 
         }
         public void BuildCategoryDropDownList(object selectedValue = null)

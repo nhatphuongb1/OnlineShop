@@ -47,6 +47,7 @@ namespace OnlineShop
             // TODO: Register your type's mappings here.
             container.RegisterType<ICategoryRepository, CategoryRepository>();
             container.RegisterType<ICategoryService, CategoryService>();
+            container.RegisterType<IImageRepository, ImageRepository>();
         }
     }
 }
