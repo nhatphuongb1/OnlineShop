@@ -28,5 +28,16 @@ namespace OnlineShop.AccessData.Repositories.Implement
             Insert(category);
             Save();
         }
+
+        public Category GetCategoryByID(int? id)
+        {
+            return GetByID(id);
+        }
+
+        public void EditCategory(Category category)
+        {
+            Update(category);
+            Save();
+        }
     }
 }

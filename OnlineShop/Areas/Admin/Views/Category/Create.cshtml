@@ -1,0 +1,62 @@
+﻿@model OnlineShop.AccessData.ViewModel.CategoryViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="title1">
+    Category
+    <small>@ViewBag.Title</small>
+</h3>
+<div class="form-three widget-shadow" data-example-id="bordered-table">
+        @using (Html.BeginForm("Create", "Category", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="form-horizontal align-left">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @id = "name", @maxlength = 50 } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-9">
+                @Html.TextAreaFor(model => model.Description, new { @id = "Description", @class = "col-md-12" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2">Parent</label>
+            <div class="col-md-9">
+                @Html.DropDownListFor(model => model.ParentID, ViewBag.parentList as SelectList, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="file" class="col-md-2">File Image</label>
+            <div class="col-md-10">
+                <input type="file" name="file" id="file" accept="image/*" />
+                @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
+                <img  name="view-file" src="" id="imageUpload" width="150" height="150" style="display:none ;margin-top:20px" />
+            </div>
+        </div>
+
+        <script>
+            CKEDITOR.replace('Description', {
+
+            });
+        </script>
+        <div class="col-sm-offset-2">
+            <button id="btn-create" type="submit" class="btn btn-primary">Create</button>
+            <a href="@Url.Action("index")" class="btn btn-danger">Cancel</a>
+        </div>
+    </div>
+
+        }
+    </div>
+
+

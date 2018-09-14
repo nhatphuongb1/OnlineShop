@@ -8,5 +8,7 @@ namespace OnlineShop.AccessData.Repositories.Interface
         IEnumerable<Category> GetCategories(string name,int? parent, bool? status);
         IEnumerable<Category> GetParentCategories();
         void AddCategory(Category category);
+        Category GetCategoryByID(int? id);
+        void EditCategory(Category category);
     }
 }

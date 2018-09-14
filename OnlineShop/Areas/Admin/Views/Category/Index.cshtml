@@ -1,4 +1,8 @@
-﻿
+﻿@model PagedList.IPagedList<OnlineShop.AccessData.ViewModel.CategoryViewModel>
+@using OnlineShop.AccessData.Utilities;
+@{
+    var i = (Model.PageNumber - 1) * ConstantValues.PAGE_SIZE;
+}
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -7,66 +11,65 @@
     <script src="~/Content/layoutAdmin/js/ScriptForPage/category.js"></script>
 }
 
-<h3 class="title1">Category</h3>
-    <div class="row">
-        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal-create">
-            <span class="glyphicon glyphicon-plus">
-            </span>
-            Create
-        </button>
+    <h3 class="title1">
+        Category
+        <small>@ViewBag.Title</small>
+    </h3>
+<div class="row">
+    <a href="@Url.Action("create")" class="btn btn-primary btn-md" >
+        <span class="glyphicon glyphicon-plus">
+        </span>
+        Create
+    </a>
+</div>
+
+<div class="tables">
+    <div class="bs-example widget-shadow filters" data-example-id="bordered-table">
+        @using (@Html.BeginForm("_PartialCategory", "Category", FormMethod.Get))
+        {
+            <table class="table table-bordered table-filter">
+                <thead>
+                    <tr>
+                        <th class="col-md-3 col-filter">Name</th>
+                        <th class="col-md-3 col-filter">ParentName</th>
+                        <th class="col-md-3 col-filter">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-md-3 col-filter">
+                            @Html.TextBox("name", null, new { @class = "form-control pull-right", placeholder = "Name" })
+                        </td>
+                        <td class="col-md-3 col-filter">
+                            @Html.DropDownList("parentForSearch", null, htmlAttributes: new { @class = "selectpicker form-control" })
+                        </td>
+                        <td class="col-md-3 col-filter">
+                            <select title="Select your spell" class="selectpicker form-control" name="status">
+                                <option>All</option>
+                                <option data-icon="glyphicon status-active glyphicon-ok" value="True">Active</option>
+                                <option data-icon="glyphicon status-delete glyphicon-remove" value="False">Deleted</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <button type="button" id="search-btn" class="btn btn-primary" data-url="@Url.Action("_PartialCategory")">
+                    Search
+                </button>
+                <button type="button" id="reset-btn" class="btn btn-default" data-url="@Url.Action("_PartialCategory")">
+                    Reset
+                </button>
+            </div>
+        }
+
     </div>
+</div>
 
-    <div class="tables">
-        <div class="bs-example widget-shadow" data-example-id="bordered-table">
-            @using (@Html.BeginForm("_PartialCategory", "Category", FormMethod.Get))
-            {
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
+<div class="partial-view" id="list-data">
+    @Html.Partial("~/Areas/Admin/Views/Category/_PartialCategory.cshtml")
+</div>
 
-                            <th class="col-md-3">Name</th>
-                            <th class="col-md-3">ParentName</th>
-                            <th class="col-md-3">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="col-md-3">
-                                @Html.TextBox("name", null, new { @class = " form-control pull-right", placeholder = "Name" })
-                            </td>
-                            <td class="col-md-3">
-                                @Html.DropDownList("parentForSearch", null, htmlAttributes: new { @class = "selectpicker form-control" })
-                            </td>
-                            <td class="col-md-3">
-                                <select title="Select your spell" class="selectpicker form-control" name="status">
-                                    <option>All</option>
-                                    <option data-icon="glyphicon status-active glyphicon-ok" value="True">Active</option>
-                                    <option data-icon="glyphicon status-delete glyphicon-remove" value="False">Deleted</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div>
-                    <button type="button" id="search-btn" class="btn btn-primary" data-url="@Url.Action("_PartialCategory")">
-                        Search
-                    </button>
-                    <button type="button" id="reset-btn" class="btn btn-default" data-url="@Url.Action("_PartialCategory")">
-                        Reset
-                    </button>
-                </div>
-            }
-
-        </div>
-
-    </div>
-
-    <div class="partial-view" id="list-data">
-        @{Html.RenderAction("_PartialCategory");}
-    </div>
-    <div id="myModal-create" class="modal fade" role="dialog" data-url="@Url.Action("_PartialCreate")">
-        @{Html.RenderAction("_PartialCreate");}
-    </div>
 
 
 

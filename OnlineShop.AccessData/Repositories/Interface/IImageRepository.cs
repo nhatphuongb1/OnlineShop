@@ -9,6 +9,8 @@ namespace OnlineShop.AccessData.Repositories.Interface
 {
     public interface IImageRepository:IRepositoryBase<Image>
     {
-        void AddImage(Image image);
+        int AddImage(string path);
+        void EditImage(int? id, string path);
+        Image GetImage(int? id);
     }
 }

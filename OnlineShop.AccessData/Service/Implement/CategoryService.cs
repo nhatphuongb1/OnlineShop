@@ -8,7 +8,6 @@ namespace OnlineShop.AccessData.Service
 {
     public class CategoryService : ICategoryService
     {
-        public OnlineShopModel context;
         private readonly ICategoryRepository categoryRepository;
         private readonly IImageRepository imageRepository;
 
@@ -28,11 +27,26 @@ namespace OnlineShop.AccessData.Service
             return Mapper.Map<IEnumerable<CategoryViewModel>>(categoryRepository.GetParentCategories());
         }
 
-        public void AddCategory(CategoryViewModel model)
+        public void AddCategory(CategoryViewModel model, string imagePath)
+        {
+            model.ImageID = imageRepository.AddImage(imagePath);
+            Category category = Mapper.Map<Category>(model);
+            categoryRepository.AddCategory(category);
+        }
+
+        public CategoryViewModel GetCategoryByID(int? id)
+        {
+            return Mapper.Map<CategoryViewModel>(categoryRepository.GetCategoryByID(id));
+        }
+
+        public void EditCategory(CategoryViewModel model, string path)
         {
             Category category = Mapper.Map<Category>(model);
-            category.ImageID = 296;
-            categoryRepository.AddCategory(category);
+            if (!string.IsNullOrEmpty(path))
+            {
+                imageRepository.EditImage(model.ImageID, path);
+            }
+            categoryRepository.EditCategory(category);
         }
     }
 }

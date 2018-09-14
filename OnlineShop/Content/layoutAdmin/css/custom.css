@@ -1,65 +1,69 @@
 #wrapper {
     width: 100%;
 }
+
 #page-wrapper {
-    padding:7em 2em 2.5em;
-	background-color: #F1F1F1;
+    padding: 7em 2em 2.5em;
+    background-color: #F1F1F1;
 }
+
 .navbar-top-links {
     margin-right: 0;
 }
 
-.navbar-top-links li {
-    display: inline-block;
-}
+    .navbar-top-links li {
+        display: inline-block;
+    }
 
-.navbar-top-links li:last-child {
-    margin-right: 15px;
-}
+        .navbar-top-links li:last-child {
+            margin-right: 15px;
+        }
 
-.navbar-top-links li a {
-    padding: 15px;
-    min-height: 50px;
-}
+        .navbar-top-links li a {
+            padding: 15px;
+            min-height: 50px;
+        }
 
-.navbar-top-links .dropdown-menu li {
-    display: block;
-}
+    .navbar-top-links .dropdown-menu li {
+        display: block;
+    }
 
-.navbar-top-links .dropdown-menu li:last-child {
-    margin-right: 0;
-}
+        .navbar-top-links .dropdown-menu li:last-child {
+            margin-right: 0;
+        }
 
-.navbar-top-links .dropdown-menu li a {
-    padding: 3px 20px;
-    min-height: 0;
-}
+        .navbar-top-links .dropdown-menu li a {
+            padding: 3px 20px;
+            min-height: 0;
+        }
 
-.navbar-top-links .dropdown-menu li a div {
-    white-space: normal;
-}
+            .navbar-top-links .dropdown-menu li a div {
+                white-space: normal;
+            }
 
-.navbar-top-links .dropdown-messages,
-.navbar-top-links .dropdown-tasks,
-.navbar-top-links .dropdown-alerts {
-    width: 310px;
-    min-width: 0;
-}
-.navbar-top-links .dropdown-messages {
-    margin-left: 5px;
-}
-.navbar-top-links .dropdown-tasks {
-    margin-left: -59px;
-}
+    .navbar-top-links .dropdown-messages,
+    .navbar-top-links .dropdown-tasks,
+    .navbar-top-links .dropdown-alerts {
+        width: 310px;
+        min-width: 0;
+    }
 
-.navbar-top-links .dropdown-alerts {
-    margin-left: -123px;
-}
+    .navbar-top-links .dropdown-messages {
+        margin-left: 5px;
+    }
 
-.navbar-top-links .dropdown-user {
-    right: 0;
-    left: auto;
-}
+    .navbar-top-links .dropdown-tasks {
+        margin-left: -59px;
+    }
+
+    .navbar-top-links .dropdown-alerts {
+        margin-left: -123px;
+    }
+
+    .navbar-top-links .dropdown-user {
+        right: 0;
+        left: auto;
+    }
 
 .sidebar .sidebar-nav.navbar-collapse {
     padding-right: 0;
@@ -69,6 +73,7 @@
 .sidebar .sidebar-search {
     padding: 15px;
 }
+
 .sidebar .arrow {
     float: right;
 }
@@ -77,30 +82,33 @@
     content: "\f104";
 }
 
-.sidebar .active>a>.fa.arrow:before {
+.sidebar .active > a > .fa.arrow:before {
     content: "\f107";
 }
 
 .sidebar .nav-second-level li,
 .sidebar .nav-third-level li {
-    border-bottom: 0!important;
-	margin-bottom: 0;
+    border-bottom: 0 !important;
+    margin-bottom: 0;
 }
 
-.sidebar .nav-second-level li a {
-    padding-left: 53px;
-    font-size: .9em;
-}
-.sidebar .nav-third-level li a {
-    padding-left: 52px;
-}
-@media(min-width:768px){
+    .sidebar .nav-second-level li a {
+        padding-left: 53px;
+        font-size: .9em;
+    }
+
+    .sidebar .nav-third-level li a {
+        padding-left: 52px;
+    }
+
+@media(min-width:768px) {
     .navbar-top-links .dropdown-messages,
     .navbar-top-links .dropdown-tasks,
     .navbar-top-links .dropdown-alerts {
         margin-left: auto;
     }
 }
+
 loading-screen {
     display: none;
 }
@@ -206,21 +214,39 @@ body.loading .loading-screen .spinner.circles div {
         transform: rotate(315deg) translate(0, -25px) scale(0.1);
         opacity: 0.1;
     }
+
 .status-active {
-   color: #286090
+    color: #286090
 }
+
 .status-delete {
     color: #c9302c
 }
-.clear{
-    clear:both;
+
+.clear {
+    clear: both;
 }
-.search-btn{
-   
+
+.search-btn {
 }
+
     .search-btn #search-btn {
-       margin-right:10px;
+        margin-right: 10px;
     }
- .modal-dialog{
-     width:70% !important
+
+.filters {
+    padding: 1em 1em 0.5em !important;
+}
+
+.col-filter {
+    padding: 8px !important;
+}
+
+.table-filter {
+    margin-bottom: 10px !important;
+}
+
+.data-image {
+    width: 50px;
+    height: 50px;
 }

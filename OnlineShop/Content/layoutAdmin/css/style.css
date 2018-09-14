@@ -107,7 +107,7 @@ button#showLeftPush:hover {
 /* Push classes applied to the body */
 .cbp-spmenu-push {
 	overflow-x: hidden;
-	position: relative;
+	/*position: relative;*/
 }
 .cbp-spmenu-push-toright {
 	left: 0;

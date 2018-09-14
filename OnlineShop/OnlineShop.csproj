@@ -1193,6 +1193,7 @@
     <Content Include="Content\layoutAdmin\images\2.png" />
     <Content Include="Content\layoutAdmin\images\3.png" />
     <Content Include="Content\layoutAdmin\images\a.png" />
+    <Content Include="Content\layoutAdmin\images\default.png" />
     <Content Include="Content\layoutAdmin\images\i1.png" />
     <Content Include="Content\layoutAdmin\images\i2.png" />
     <Content Include="Content\layoutAdmin\images\i3.png" />
@@ -1361,7 +1362,6 @@
     <Content Include="Content\layoutAdmin\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Category\_PartialCategory.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\_PartialCreate.cshtml" />
     <Content Include="Content\layoutAdmin\ckeditor\plugins\imagebrowser\README.rst" />
     <Content Include="Content\layoutAdmin\ckeditor\plugins\scayt\CHANGELOG.md" />
     <Content Include="Content\layoutAdmin\ckeditor\plugins\scayt\LICENSE.md" />
@@ -1376,6 +1376,8 @@
     <Content Include="Content\layoutAdmin\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\layoutAdmin\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\layoutAdmin\ckfinder\userfiles\.htaccess" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1389,6 +1391,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Uploads\2767e5d3-0c61-46dc-8939-6e8b76e18c98\phuongcn.jpeg" />
+    <Content Include="Uploads\fa3604f0-3026-4f84-82e7-5980759f7e1c\phuongcn.jpeg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

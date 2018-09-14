@@ -23,7 +23,7 @@
                 {
                     <tr>
                         <th scope="row">@(++i)</th>
-                        <td><img class="img-responsive" src="@item.ImagePath" /></td>
+                        <td><img class="img-responsive data-image" src="@item.ImagePath" /></td>
                         <td>@item.Name</td>
                         <td>@(item.CategoryParent != null ? item.ParentName : "")</td>
                         <td>
@@ -31,8 +31,8 @@
                         </td>
                         <td>
 
-                            @Html.ActionLink(" ", "Edit ", new { }, new { @class = "btn btn-primary glyphicon glyphicon-edit", @title = "Edit" })
-                            <a class="btn btn-danger glyphicon glyphicon-trash" href="#" title="Delete" data-toggle="modal" data-target="#gridSystemModal"></a>
+                            @Html.ActionLink(" ", "Edit", new {id=item.CategoryID}, new { @class = "btn btn-primary glyphicon glyphicon-edit", @title = "Edit" })
+                            <a id="link-delete" data-id="@item.CategoryID" class="btn btn-danger glyphicon glyphicon-trash" href="#" title="Delete" data-toggle="modal" data-target="#gridSystemModal"></a>
                         </td>
                     </tr>
                 }

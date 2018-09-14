@@ -1,0 +1,66 @@
+﻿
+@model OnlineShop.AccessData.ViewModel.CategoryViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="title1">
+    Category
+    <small>@ViewBag.Title</small>
+</h3>
+<div class="form-three widget-shadow" data-example-id="bordered-table">
+    @using (Html.BeginForm("Edit", "Category", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.CategoryID)
+        @Html.HiddenFor(model => model.ImageID)
+        @Html.HiddenFor(model => model.Status)
+    <div class="form-horizontal align-left">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @id = "name", @maxlength = 50 } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-9">
+                @Html.TextAreaFor(model => model.Description, new { @id = "Description", @class = "col-md-12" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2">Parent</label>
+            <div class="col-md-9">
+                @Html.DropDownListFor(model => model.ParentID, ViewBag.parentList as SelectList, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="file" class="col-md-2">File Image</label>
+            <div class="col-md-10">
+                <input type="file" name="file" id="file-edit" accept="image/*" style="display:none" />
+                @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
+                <img  name="view-file" src="@Model.ImagePath"  width="100" height="100" style="cursor:pointer" />
+            </div>
+        </div>
+        <script>
+            CKEDITOR.replace('Description', {
+
+            });
+        </script>
+        <div class="col-sm-offset-2">
+            <button id="btn-edit" type="submit" class="btn btn-primary">Save change</button>
+            <a href="@Url.Action("index")" class="btn btn-danger">Cancel</a>
+        </div>
+    </div>
+
+    }
+</div>
+
+
+
+

@@ -25,6 +25,7 @@ namespace OnlineShop.AccessData.Utilities
         public const string STRING_PRODUCT_DEFAULT_IMAGE = "/Content/layoutUser/images/default-product-image.jpg";
 
         public const string STRING_AVATAR_DEFAULT_IMAGE = "/Content/layoutUser/images/default-avatar.png";
+        public const string STRING_DEFAULT_IMAGE = @"\Content\layoutAdmin\images\default.png";
 
         public const string STRING_NO_RECORDS = "Cannot find any items!";
 

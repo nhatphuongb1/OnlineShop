@@ -21,7 +21,7 @@ namespace OnlineShop.AccessData.ViewModel
         [Display(Name = "Image")]
         public int ImageID { get; set; }
 
-        public string ImagePath => Image.ImagePath;
+        public string ImagePath { get; set; }
 
         public int? ParentID { get; set; }
 

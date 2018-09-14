@@ -27,3 +27,49 @@ $(document).on("click", "#reset-btn", function () {
             $('#list-data').html(data);
         });
 });
+
+$(document).on("click", "#link-delete", function () {
+    var id = $(this).data("id");
+    $(document).on("click", "#delete", function () {
+        showLoadingScreen();
+        $.ajax({
+            url: '/Delete',
+            type: 'post',
+            success: function (data) {
+                if (data.status == "SUCCESS") {
+
+                    $.ajax({
+                        url: '/_PartialBo',
+                        data: {
+                            id: id
+                        },
+                        beforeSend: function () {
+
+                        },
+                        success: function (res) {
+                            hideLoadingScreen();
+                            $('#list-data').html(res);
+                            if (res.status = "SUCCESS") {
+                                alertModalMini("Delete successfully!", "success");
+                            }
+
+                        },
+                        error: function () {
+                            alertModalMini("Đã có lỗi xảy ra ", "error");
+                        }
+                    })
+                } else {
+                    hideLoadingScreen();
+                    alertModalMini("Không thể xóa vì bộ này có chứa các họ.", "error");
+                }
+
+            },
+            error: function () {
+                alertModalMini("Đã có lỗi xảy ra ", "error");
+            },
+        });
+
+        $("#myModal-delete").modal("hide");
+
+    });
+})

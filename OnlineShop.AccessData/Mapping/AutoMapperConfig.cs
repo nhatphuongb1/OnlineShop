@@ -18,9 +18,14 @@ namespace OnlineShop.AccessData.Mapping
             {
                 cfg.CreateMap<Category, CategoryViewModel>()
                   .ForMember(dest => dest.Image, opt => opt.MapFrom(src=>src.Image))
+                   .ForMember(dest => dest.ImagePath, opt => opt.MapFrom(src => src.Image.ImagePath))
                   .ForMember(dest => dest.CategoryParent, opt => opt.MapFrom(src => src.Category2));
 
-                cfg.CreateMap<CategoryViewModel, Category>();
+
+                cfg.CreateMap<CategoryViewModel, Category>()
+                  .ForMember(dest => dest.Image, opt => opt.MapFrom(src => src.Image))
+                 .ForMember(dest => dest.Category2, opt => opt.MapFrom(src => src.CategoryParent));
+                ;
             });
         }
     }
